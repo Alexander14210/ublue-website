@@ -88,7 +88,10 @@ function onDragEnd() {
 }
 
 onMounted(() => cycle())
-onUnmounted(() => clearTimeout(timer))
+onUnmounted(() => {
+  clearTimeout(timer)
+  onDragEnd()
+})
 
 const tabLabels: Record<Phase, string> = {
   cluster: 'Cluster',

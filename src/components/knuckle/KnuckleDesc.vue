@@ -21,9 +21,9 @@ onMounted(() => {
     </p>
     <p class="hero-desc">
       Image-based, auto-update, zero maintenance, for servers in your closet. <strong>Justfile-driven</strong>, just like Bluefin.
-	</p>
-	<p class="hero-desc">
-      Easy observability, supporting your steps into <strong>digital sovereignity</strong>!
+    </p>
+    <p class="hero-desc">
+      Easy observability, supporting your steps into <strong>digital sovereignty</strong>!
     </p>
   </div>
 </template>

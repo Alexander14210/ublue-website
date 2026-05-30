@@ -23,7 +23,9 @@ onMounted(() => {
       </div>
 
       <div class="title-col-right">
-        <p class="title-subtitle">Seamless homelab with CNCF tech stack</p>
+        <p class="title-subtitle">
+          Seamless homelab with CNCF tech stack
+        </p>
       </div>
     </div>
   </div>
