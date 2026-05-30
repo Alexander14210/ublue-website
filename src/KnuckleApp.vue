@@ -15,6 +15,9 @@ provide('visibleSection', visibleSection)
 
 const baseUrl = import.meta.env.BASE_URL
 const isLoading = ref(true)
+// Toggle states for collapsible boxes
+const whyBox1Open = ref(true)
+const whyBox2Open = ref(true)
 onBeforeMount(() => {
   const img = new Image()
   img.src = `${baseUrl}characters/karl.webp`
@@ -59,9 +62,33 @@ if (i18n.global.availableLocales.includes(currentLocale)) {
         </div>
         <div class="col-features">
           <KnuckleFeatures />
+        <div class="why-box">
+          <h2 class="why-title" @click="whyBox1Open = !whyBox1Open">
+            Why Bluespeed?
+          </h2>
+          <ul class="why-list" v-if="whyBox1Open">
+              <li><strong>Sustainability</strong> — Use all of your machines as one cluster, take advantage of everything you own.</li>
+              <li><strong>Community Driven</strong> — CNCF Projects have a proven track record of community interaction and commercial vendors</li>
+              <li><strong>Built by Experts for themselves</strong> — This is how we would design our ultimate homelab ourselves, your favorite dinosaur people</li>
+              <li><strong>Common</strong> — everything you learn here is a real world skill. One that is in high demand!</li>
+              <li><strong>Foundational</strong> — Keep it simple or build an automation setup totally run by your own self host models. Sky's the limit.</li>
+              <li><strong>On Brand</strong> — Working hard to give you Star Trek, it's about useful bling here, we're trying to show off to our friends.</li>
+          </ul>
         </div>
       </div>
 
+        <div class="why-box">
+          <h2 class="why-title" @click="whyBox2Open = !whyBox2Open">
+            One node to start. Scale effortlessly.
+          </h2>
+          <ul class="why-list" v-if="whyBox2Open">
+              <li><strong>One config, infinite nodes</strong> — Seamlessly just add nodes, it's all just Kubernetes</li>
+              <li><strong>Automatic networking</strong> — Tailscale joins at first boot. No port forwarding.</li>
+              <li><strong>Self-healing</strong> — OS and sysexts auto-update. You never patch.</li>
+              <li><strong>GPU Support</strong> — NVIDIA configured on your server's GPU, transparently shareable with all of your clients.</li>
+              <li><strong>Dashboard from day one</strong> — KubeStellar gives you visibility across your entire cluster.</li>
+              <li><strong>Reproducible</strong> — Node die? Rebuild on the fly. It's a cluster — redundancy is built in.</li>
+          </ul>
       <!-- Right side: version/download box + mission statement below -->
       <div class="col-right-stack">
         <div class="col-right">
@@ -84,34 +111,6 @@ if (i18n.global.availableLocales.includes(currentLocale)) {
             </a>
           </div>
         </blockquote>
-
-        <div class="why-box">
-          <h2 class="why-title">
-            Why Bluespeed?
-          </h2>
-          <ul class="why-list">
-            <li><strong>Sustainability</strong> — Use all of your machines as one cluster, take advantage of everything you own.</li>
-            <li><strong>Community Driven</strong> — CNCF Projects have a proven track record of community interaction and commercial vendors</li>
-            <li><strong>Built by Experts for themselves</strong> — This is how we would design our ultimate homelab ourselves, your favorite dinosaur people</li>
-            <li><strong>Common</strong> — everything you learn here is a real world skill. One that is in high demand!</li>
-            <li><strong>Foundational</strong> — Keep it simple or build an automation setup totally run by your own self host models. Sky's the limit.</li>
-            <li><strong>On Brand</strong> — Working hard to give you Star Trek, it's about useful bling here, we're trying to show off to our friends.</li>
-          </ul>
-        </div>
-
-        <div class="why-box">
-          <h2 class="why-title">
-            One node to start. Scale effortlessly.
-          </h2>
-          <ul class="why-list">
-            <li><strong>One config, infinite nodes</strong> — Seamlessly just add nodes, it's all just Kubernetes</li>
-            <li><strong>Automatic networking</strong> — Tailscale joins at first boot. No port forwarding.</li>
-            <li><strong>Self-healing</strong> — OS and sysexts auto-update. You never patch.</li>
-            <li><strong>GPU Support</strong> — NVIDIA configured on your server's GPU, transparently shareable with all of your clients.</li>
-            <li><strong>Dashboard from day one</strong> — KubeStellar gives you visibility across your entire cluster.</li>
-            <li><strong>Reproducible</strong> — Node die? Rebuild on the fly. It's a cluster — redundancy is built in.</li>
-          </ul>
-        </div>
 
         <blockquote class="quote-box">
           <p>“Little Bluefin has brought many of you to the world of cloud native. Now meet the real giant. Infrastructure. How would cloud native people run their own homelabs? As customizable as you want where it matters, and a fully automated, well tuned machine. Bluefin’s natural companion. The building block to your perfect computing setup, all controlled by you. Help us build it!”</p>
@@ -249,16 +248,24 @@ if (i18n.global.availableLocales.includes(currentLocale)) {
   border-left: 3px solid rgba(var(--color-blue-rgb), 0.5);
 
   .why-title {
+    cursor: pointer;
     font-size: 2rem;
     font-weight: 700;
     color: var(--color-text-light);
     margin: 0;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--color-blue-light);
+    }
   }
 
   .why-list {
     margin: 0;
     padding-left: 0;
     list-style: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 
     li {
       font-size: 1.6rem;
