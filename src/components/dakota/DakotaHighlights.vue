@@ -84,7 +84,14 @@ import {
 <style scoped lang="scss">
 .dakota-highlights {
   min-height: auto;
-  padding: 0;
+  padding: 24px;
+  background: rgba(var(--color-bg-rgb), 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+
+  :deep(.container) {
+    padding: 0;
+  }
 
   .icon-wrap {
     svg {
@@ -97,6 +104,11 @@ import {
 
   :deep(.brand-item) {
     padding: 14px 20px;
+    border-right: none;
+
+    &:nth-child(odd) {
+      border-right: none;
+    }
   }
 
   :deep(.brand-gnome) {
@@ -162,9 +174,6 @@ import {
   .dakota-highlights {
     :deep(.brand-grid) {
       grid-template-columns: 1fr !important;
-    }
-    :deep(.brand-item:nth-child(odd)) {
-      border-right: none !important;
     }
   }
 }

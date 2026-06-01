@@ -47,7 +47,7 @@ if (i18n.global.availableLocales.includes(currentLocale)) {
         <div class="col-right-sticky">
           <div class="alpha-badge-row">
             <div class="alpha-badge">
-              ⚠️ <strong>Alpha software.</strong> Take appropriate precautions.
+              ⚠️ <strong>Alpha.</strong>Take appropriate precautions.
             </div>
           </div>
           <DakotaVersionCard />
@@ -168,6 +168,7 @@ if (i18n.global.availableLocales.includes(currentLocale)) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 24px;
   flex: 1;
   min-width: 0;
 }
