@@ -25,10 +25,14 @@ function getRandomBluefinImage() {
 
 const isLoaded = ref(false)
 
-const isHolidaySeason = new Date().getMonth() === 11
+const currentMonth = new Date().getMonth()
+const isHolidaySeason = currentMonth === 11
+const isPrideMonth = currentMonth === 5
 const imageToDisplay = isHolidaySeason
   ? Holidaysaurus
-  : getRandomBluefinImage()
+  : isPrideMonth
+    ? `${import.meta.env.BASE_URL}characters/header/pride.webp`
+    : getRandomBluefinImage()
 
 onMounted(() => {
   setTimeout(() => {
