@@ -36,6 +36,7 @@ convention that browsers report via `Navigator.language`:
 | Dutch | `nl-NL.json` |
 | Slovak | `sk-SK.json` |
 | Esperanto | `eo.json` |
+| Spanish | `es.json` |
 
 ---
 
